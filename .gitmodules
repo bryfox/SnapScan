@@ -1,0 +1,9 @@
+[submodule "tesseract-ocr"]
+	path = tesseract-ocr
+	url = https://github.com/tesseract-ocr/tesseract.git
+[submodule "leptonica"]
+	path = leptonica
+	url = file:///Users/bryfox/dev/_ext/leptonica/
+[submodule "libtiff-ios"]
+	path = libtiff-ios
+	url = https://github.com/ashtons/libtiff-ios.git
