@@ -4,6 +4,12 @@
 vendor/include
 vendor/lib
 
+# downloaded realm frameworks
+vendor/realm-*
+
+# Frameworks copied to source
+SnapScan/SnapScan/Frameworks/Realm*.framework
+
 # Xcode
 #
 # gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
