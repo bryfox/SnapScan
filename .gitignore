@@ -1,5 +1,9 @@
 .DS_Store
 
+# generated dependencies (see Makefile)
+vendor/include
+vendor/lib
+
 # Xcode
 #
 # gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
