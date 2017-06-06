@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F1773E51EE5FD2C00749740 /* ScanResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1773E41EE5FD2C00749740 /* ScanResult.swift */; };
+		0F1773E81EE5FDE700749740 /* ScanResultTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1773E71EE5FDE700749740 /* ScanResultTests.swift */; };
 		0FC57F631EE5E67F00EE62F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC57F621EE5E67F00EE62F2 /* AppDelegate.swift */; };
 		0FC57F651EE5E67F00EE62F2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC57F641EE5E67F00EE62F2 /* ViewController.swift */; };
 		0FC57F681EE5E67F00EE62F2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FC57F661EE5E67F00EE62F2 /* Main.storyboard */; };
@@ -14,6 +16,10 @@
 		0FC57F6D1EE5E67F00EE62F2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FC57F6B1EE5E67F00EE62F2 /* LaunchScreen.storyboard */; };
 		0FC57F781EE5E67F00EE62F2 /* SnapScanTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC57F771EE5E67F00EE62F2 /* SnapScanTests.swift */; };
 		0FC57F831EE5E67F00EE62F2 /* SnapScanUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC57F821EE5E67F00EE62F2 /* SnapScanUITests.swift */; };
+		0FC57F951EE5F62900EE62F2 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FC57F941EE5F62900EE62F2 /* Realm.framework */; };
+		0FC57F961EE5F62900EE62F2 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0FC57F941EE5F62900EE62F2 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0FC57F991EE5F63100EE62F2 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FC57F981EE5F63100EE62F2 /* RealmSwift.framework */; };
+		0FC57F9A1EE5F63100EE62F2 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0FC57F981EE5F63100EE62F2 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,7 +39,24 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		0FC57F971EE5F62900EE62F2 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				0FC57F9A1EE5F63100EE62F2 /* RealmSwift.framework in Embed Frameworks */,
+				0FC57F961EE5F62900EE62F2 /* Realm.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		0F1773E41EE5FD2C00749740 /* ScanResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScanResult.swift; path = Models/ScanResult.swift; sourceTree = "<group>"; };
+		0F1773E71EE5FDE700749740 /* ScanResultTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanResultTests.swift; sourceTree = "<group>"; };
 		0FC57F5F1EE5E67F00EE62F2 /* SnapScan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SnapScan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FC57F621EE5E67F00EE62F2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0FC57F641EE5E67F00EE62F2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +70,8 @@
 		0FC57F7E1EE5E67F00EE62F2 /* SnapScanUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SnapScanUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FC57F821EE5E67F00EE62F2 /* SnapScanUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapScanUITests.swift; sourceTree = "<group>"; };
 		0FC57F841EE5E67F00EE62F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0FC57F941EE5F62900EE62F2 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = SnapScan/Frameworks/Realm.framework; sourceTree = "<group>"; };
+		0FC57F981EE5F63100EE62F2 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = SnapScan/Frameworks/RealmSwift.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +79,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0FC57F991EE5F63100EE62F2 /* RealmSwift.framework in Frameworks */,
+				0FC57F951EE5F62900EE62F2 /* Realm.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,6 +104,8 @@
 		0FC57F561EE5E67F00EE62F2 = {
 			isa = PBXGroup;
 			children = (
+				0FC57F981EE5F63100EE62F2 /* RealmSwift.framework */,
+				0FC57F941EE5F62900EE62F2 /* Realm.framework */,
 				0FC57F611EE5E67F00EE62F2 /* SnapScan */,
 				0FC57F761EE5E67F00EE62F2 /* SnapScanTests */,
 				0FC57F811EE5E67F00EE62F2 /* SnapScanUITests */,
@@ -97,6 +126,7 @@
 		0FC57F611EE5E67F00EE62F2 /* SnapScan */ = {
 			isa = PBXGroup;
 			children = (
+				0FC57F9B1EE5F6D300EE62F2 /* Models */,
 				0FC57F621EE5E67F00EE62F2 /* AppDelegate.swift */,
 				0FC57F641EE5E67F00EE62F2 /* ViewController.swift */,
 				0FC57F661EE5E67F00EE62F2 /* Main.storyboard */,
@@ -110,8 +140,9 @@
 		0FC57F761EE5E67F00EE62F2 /* SnapScanTests */ = {
 			isa = PBXGroup;
 			children = (
-				0FC57F771EE5E67F00EE62F2 /* SnapScanTests.swift */,
 				0FC57F791EE5E67F00EE62F2 /* Info.plist */,
+				0FC57F771EE5E67F00EE62F2 /* SnapScanTests.swift */,
+				0F1773E71EE5FDE700749740 /* ScanResultTests.swift */,
 			);
 			path = SnapScanTests;
 			sourceTree = "<group>";
@@ -125,6 +156,14 @@
 			path = SnapScanUITests;
 			sourceTree = "<group>";
 		};
+		0FC57F9B1EE5F6D300EE62F2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0F1773E41EE5FD2C00749740 /* ScanResult.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -136,6 +175,7 @@
 				0FC57F5C1EE5E67F00EE62F2 /* Frameworks */,
 				0FC57F5D1EE5E67F00EE62F2 /* Resources */,
 				0FC57F931EE5EB3800EE62F2 /* ShellScript */,
+				0FC57F971EE5F62900EE62F2 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -269,8 +309,8 @@
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "";
+			shellPath = /bin/bash;
+			shellScript = "#bash \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework/strip-frameworks.sh\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -281,6 +321,7 @@
 			files = (
 				0FC57F651EE5E67F00EE62F2 /* ViewController.swift in Sources */,
 				0FC57F631EE5E67F00EE62F2 /* AppDelegate.swift in Sources */,
+				0F1773E51EE5FD2C00749740 /* ScanResult.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,6 +329,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F1773E81EE5FDE700749740 /* ScanResultTests.swift in Sources */,
 				0FC57F781EE5E67F00EE62F2 /* SnapScanTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -435,6 +477,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = YU8J9474XL;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SnapScan/Frameworks",
+				);
 				INFOPLIST_FILE = SnapScan/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bryfox.SnapScan;
@@ -448,6 +494,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = YU8J9474XL;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SnapScan/Frameworks",
+				);
 				INFOPLIST_FILE = SnapScan/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bryfox.SnapScan;
@@ -462,6 +512,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = YU8J9474XL;
+				FRAMEWORK_SEARCH_PATHS = "\"$(SRCROOT)/SnapScan/Frameworks\"";
 				INFOPLIST_FILE = SnapScanTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bryfox.SnapScanTests;
@@ -477,6 +528,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = YU8J9474XL;
+				FRAMEWORK_SEARCH_PATHS = "\"$(SRCROOT)/SnapScan/Frameworks\"";
 				INFOPLIST_FILE = SnapScanTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bryfox.SnapScanTests;

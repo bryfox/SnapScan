@@ -1,11 +1,11 @@
-XC_FRAMEWORKS_DIR  = $(shell pwd)/SnapScan/SnapScan/Frameworks
-VENDOR_DIR         = $(shell pwd)/vendor
-REALM_VERSION      = 2.8.0
 # swift version used in realm framework dir
-SWIFT_VERSION      = 3.1
-vendored_realm     = $(VENDOR_DIR)/realm-swift-$(REALM_VERSION)
-realm_zip_name     = realm-swift-$(REALM_VERSION).zip
-realm_download_url = https://static.realm.io/downloads/swift/$(realm_zip_name)
+SWIFT_VERSION       = 3.1
+REALM_VERSION       = 2.8.0
+XC_FRAMEWORKS_DIR  := $(shell pwd)/SnapScan/SnapScan/Frameworks
+VENDOR_DIR         := $(shell pwd)/vendor
+vendored_realm     := $(VENDOR_DIR)/realm-swift-$(REALM_VERSION)
+realm_zip_name     := realm-swift-$(REALM_VERSION).zip
+realm_download_url := https://static.realm.io/downloads/swift/$(realm_zip_name)
 
 gitdescribe='basename `git rev-parse --show-toplevel` | tr "\n" "@"; \
                        git rev-parse --abbrev-ref HEAD | tr "\n" "@"; \
@@ -40,3 +40,30 @@ $(vendored_realm) :
 	(curl $(realm_download_url) > $(realm_zip_name)) && \
 	unzip $(realm_zip_name) && \
 	rm $(realm_zip_name) && \
+
+########################
+# Test
+########################
+
+# Note only simulator supported
+TEST_SDK    = 10.3
+SIM_DEVICE  = iPhone 6s
+XCBUILD    := $(shell which xcodebuild)
+SCHEME      = SnapScan
+
+.PHONY : test
+test : test_preflight test_build
+
+.PHONY : test_preflight
+test_preflight:
+ifndef XCBUILD
+    $(error "xcodebuild not found")
+endif
+
+.PHONY : test_build
+test_build:
+	xcodebuild -scheme $(SCHEME) build-for-testing
+
+.PHONY : test_run
+test_run:
+	xcodebuild -scheme $(SCHEME) -sdk iphonesimulator$(TEST_SDK) -destination 'platform=iOS Simulator,name=$(SIM_DEVICE),OS=$(TEST_SDK)' test
