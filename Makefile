@@ -1,22 +1,22 @@
 # swift version used in realm framework dir
-SWIFT_VERSION       = 3.1
-REALM_VERSION       = 2.8.0
-XC_FRAMEWORKS_DIR  := $(shell pwd)/SnapScan/SnapScan/Frameworks
+SWIFT_VERSION      := 3.1
+REALM_VERSION      := 2.8.0
+XCODE_PROJ_DIR     := $(shell pwd)/SnapScan/SnapScan
+XC_FRAMEWORKS_DIR  := $(XCODE_PROJ_DIR)/Frameworks
 VENDOR_DIR         := $(shell pwd)/vendor
+REALM_ZIP_NAME     := realm-swift-$(REALM_VERSION).zip
+REALM_DOWNLOAD_URL := https://static.realm.io/downloads/swift/$(REALM_ZIP_NAME)
 vendored_realm     := $(VENDOR_DIR)/realm-swift-$(REALM_VERSION)
-realm_zip_name     := realm-swift-$(REALM_VERSION).zip
-realm_download_url := https://static.realm.io/downloads/swift/$(realm_zip_name)
-
-gitdescribe='basename `git rev-parse --show-toplevel` | tr "\n" "@"; \
-                       git rev-parse --abbrev-ref HEAD | tr "\n" "@"; \
-                       git rev-parse --short HEAD' \
 
 .PHONY: all
-all: submodulestatus realm_frameworks
+all: submodulestatus realm_frameworks tess_training_data
 	$(MAKE) -C vendor
 
 .PHONY : submodulestatus
 submodulestatus :
+	gitdescribe='basename `git rev-parse --show-toplevel` | tr "\n" "@"; \
+	                       git rev-parse --abbrev-ref HEAD | tr "\n" "@"; \
+	                       git rev-parse --short HEAD' \
 	$(info ======= Submodule status: =======)
 	@git submodule foreach --quiet $(gitdescribe) | column -t -s"@"; echo
 
@@ -37,9 +37,28 @@ $(XC_FRAMEWORKS_DIR)/RealmSwift : $(vendored_realm)
 # Download pre-built realm frameworks
 $(vendored_realm) :
 	cd $(VENDOR_DIR); \
-	(curl $(realm_download_url) > $(realm_zip_name)) && \
-	unzip $(realm_zip_name) && \
-	rm $(realm_zip_name) && \
+	(curl $(REALM_DOWNLOAD_URL) > $(REALM_ZIP_NAME)) && \
+	unzip $(REALM_ZIP_NAME) && \
+	rm $(REALM_ZIP_NAME) && \
+
+########################
+# OCR training data
+########################
+OUTPUT_DATA_DIR := $(XCODE_PROJ_DIR)/tessdata
+TESS_LANGUAGES  := eng
+SOURCE_DATA     := $(foreach lang, $(TESS_LANGUAGES), $(addprefix $(VENDOR_DIR)/tessdata, /$(lang).*) )
+tess_font       := $(OUTPUT_DATA_DIR)/pdf.ttf
+
+
+.PHONY : tess_training_data
+tess_training_data: $(OUTPUT_DATA_DIR) $(tess_font)
+	cp $(SOURCE_DATA) $(OUTPUT_DATA_DIR)
+
+$(tess_font) : $(OUTPUT_DATA_DIR)
+	cp $(VENDOR_DIR)/tesseract-ocr/tessdata/pdf.ttf $(OUTPUT_DATA_DIR)
+
+$(OUTPUT_DATA_DIR) :
+	test -d $(OUTPUT_DATA_DIR) || mkdir $(OUTPUT_DATA_DIR)
 
 ########################
 # Test

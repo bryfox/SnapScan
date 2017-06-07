@@ -10,6 +10,9 @@ vendor/realm-*
 # Frameworks copied to source
 SnapScan/SnapScan/Frameworks/Realm*.framework
 
+# Tess data copied from vendor
+SnapScan/SnapScan/tessdata
+
 # Xcode
 #
 # gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore

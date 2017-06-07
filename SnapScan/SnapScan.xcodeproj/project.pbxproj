@@ -7,8 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0F1773E51EE5FD2C00749740 /* ScanResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1773E41EE5FD2C00749740 /* ScanResult.swift */; };
 		0F1773E81EE5FDE700749740 /* ScanResultTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1773E71EE5FDE700749740 /* ScanResultTests.swift */; };
+		0F30C62C1EE719360013CE18 /* ScanResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F30C62B1EE719360013CE18 /* ScanResult.swift */; };
+		0F30C6301EE7194E0013CE18 /* PDFScanner.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0F30C62F1EE7194E0013CE18 /* PDFScanner.mm */; };
+		0F30C6381EE71A5D0013CE18 /* liblept.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F30C6331EE71A5D0013CE18 /* liblept.a */; };
+		0F30C6391EE71A5D0013CE18 /* libpng.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F30C6341EE71A5D0013CE18 /* libpng.a */; };
+		0F30C63A1EE71A5D0013CE18 /* libtesseract.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F30C6351EE71A5D0013CE18 /* libtesseract.a */; };
+		0F30C63B1EE71A5D0013CE18 /* libtiff.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F30C6361EE71A5D0013CE18 /* libtiff.a */; };
+		0F30C63C1EE7203A0013CE18 /* libjpeg.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F30C6321EE71A5D0013CE18 /* libjpeg.a */; };
+		0F30C63E1EE721140013CE18 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F30C63D1EE721140013CE18 /* libz.tbd */; };
+		0F30C6401EE72E970013CE18 /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = 0F30C63F1EE72E970013CE18 /* tessdata */; };
+		0F30C6461EE739640013CE18 /* UIImage+Pix.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0F30C6451EE739640013CE18 /* UIImage+Pix.mm */; };
 		0FC57F631EE5E67F00EE62F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC57F621EE5E67F00EE62F2 /* AppDelegate.swift */; };
 		0FC57F651EE5E67F00EE62F2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC57F641EE5E67F00EE62F2 /* ViewController.swift */; };
 		0FC57F681EE5E67F00EE62F2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FC57F661EE5E67F00EE62F2 /* Main.storyboard */; };
@@ -55,8 +64,21 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0F1773E41EE5FD2C00749740 /* ScanResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScanResult.swift; path = Models/ScanResult.swift; sourceTree = "<group>"; };
+		0F01A2ED1EE8540D0022F20E /* DLog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DLog.h; sourceTree = "<group>"; };
 		0F1773E71EE5FDE700749740 /* ScanResultTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanResultTests.swift; sourceTree = "<group>"; };
+		0F30C6271EE7151C0013CE18 /* SnapScan-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SnapScan-Bridging-Header.h"; sourceTree = "<group>"; };
+		0F30C62B1EE719360013CE18 /* ScanResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScanResult.swift; path = Models/ScanResult.swift; sourceTree = "<group>"; };
+		0F30C62E1EE7194E0013CE18 /* PDFScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PDFScanner.h; path = Scanning/PDFScanner.h; sourceTree = "<group>"; };
+		0F30C62F1EE7194E0013CE18 /* PDFScanner.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = PDFScanner.mm; path = Scanning/PDFScanner.mm; sourceTree = "<group>"; };
+		0F30C6321EE71A5D0013CE18 /* libjpeg.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libjpeg.a; path = ../vendor/lib/libjpeg.a; sourceTree = "<group>"; };
+		0F30C6331EE71A5D0013CE18 /* liblept.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = liblept.a; path = ../vendor/lib/liblept.a; sourceTree = "<group>"; };
+		0F30C6341EE71A5D0013CE18 /* libpng.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpng.a; path = ../vendor/lib/libpng.a; sourceTree = "<group>"; };
+		0F30C6351EE71A5D0013CE18 /* libtesseract.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libtesseract.a; path = ../vendor/lib/libtesseract.a; sourceTree = "<group>"; };
+		0F30C6361EE71A5D0013CE18 /* libtiff.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libtiff.a; path = ../vendor/lib/libtiff.a; sourceTree = "<group>"; };
+		0F30C63D1EE721140013CE18 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		0F30C63F1EE72E970013CE18 /* tessdata */ = {isa = PBXFileReference; lastKnownFileType = folder; name = tessdata; path = SnapScan/tessdata; sourceTree = "<group>"; };
+		0F30C6441EE739640013CE18 /* UIImage+Pix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+Pix.h"; path = "Scanning/UIImage+Pix.h"; sourceTree = "<group>"; };
+		0F30C6451EE739640013CE18 /* UIImage+Pix.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = "UIImage+Pix.mm"; path = "Scanning/UIImage+Pix.mm"; sourceTree = "<group>"; };
 		0FC57F5F1EE5E67F00EE62F2 /* SnapScan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SnapScan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FC57F621EE5E67F00EE62F2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0FC57F641EE5E67F00EE62F2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -79,6 +101,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F30C63E1EE721140013CE18 /* libz.tbd in Frameworks */,
+				0F30C6381EE71A5D0013CE18 /* liblept.a in Frameworks */,
+				0F30C6391EE71A5D0013CE18 /* libpng.a in Frameworks */,
+				0F30C63C1EE7203A0013CE18 /* libjpeg.a in Frameworks */,
+				0F30C63A1EE71A5D0013CE18 /* libtesseract.a in Frameworks */,
+				0F30C63B1EE71A5D0013CE18 /* libtiff.a in Frameworks */,
 				0FC57F991EE5F63100EE62F2 /* RealmSwift.framework in Frameworks */,
 				0FC57F951EE5F62900EE62F2 /* Realm.framework in Frameworks */,
 			);
@@ -101,15 +129,57 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0F30C62A1EE719210013CE18 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0F30C62B1EE719360013CE18 /* ScanResult.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		0F30C62D1EE719450013CE18 /* Scanning */ = {
+			isa = PBXGroup;
+			children = (
+				0F30C62E1EE7194E0013CE18 /* PDFScanner.h */,
+				0F30C62F1EE7194E0013CE18 /* PDFScanner.mm */,
+				0F30C6441EE739640013CE18 /* UIImage+Pix.h */,
+				0F30C6451EE739640013CE18 /* UIImage+Pix.mm */,
+			);
+			name = Scanning;
+			sourceTree = "<group>";
+		};
+		0F30C6311EE71A5D0013CE18 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0F30C63D1EE721140013CE18 /* libz.tbd */,
+				0FC57F981EE5F63100EE62F2 /* RealmSwift.framework */,
+				0FC57F941EE5F62900EE62F2 /* Realm.framework */,
+				0F30C6321EE71A5D0013CE18 /* libjpeg.a */,
+				0F30C6331EE71A5D0013CE18 /* liblept.a */,
+				0F30C6341EE71A5D0013CE18 /* libpng.a */,
+				0F30C6351EE71A5D0013CE18 /* libtesseract.a */,
+				0F30C6361EE71A5D0013CE18 /* libtiff.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		0F30C6411EE7356F0013CE18 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				0FC57F641EE5E67F00EE62F2 /* ViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
 		0FC57F561EE5E67F00EE62F2 = {
 			isa = PBXGroup;
 			children = (
-				0FC57F981EE5F63100EE62F2 /* RealmSwift.framework */,
-				0FC57F941EE5F62900EE62F2 /* Realm.framework */,
+				0F30C63F1EE72E970013CE18 /* tessdata */,
 				0FC57F611EE5E67F00EE62F2 /* SnapScan */,
 				0FC57F761EE5E67F00EE62F2 /* SnapScanTests */,
 				0FC57F811EE5E67F00EE62F2 /* SnapScanUITests */,
 				0FC57F601EE5E67F00EE62F2 /* Products */,
+				0F30C6311EE71A5D0013CE18 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -126,13 +196,16 @@
 		0FC57F611EE5E67F00EE62F2 /* SnapScan */ = {
 			isa = PBXGroup;
 			children = (
-				0FC57F9B1EE5F6D300EE62F2 /* Models */,
+				0F30C6411EE7356F0013CE18 /* ViewControllers */,
+				0F30C62D1EE719450013CE18 /* Scanning */,
+				0F30C62A1EE719210013CE18 /* Models */,
 				0FC57F621EE5E67F00EE62F2 /* AppDelegate.swift */,
-				0FC57F641EE5E67F00EE62F2 /* ViewController.swift */,
 				0FC57F661EE5E67F00EE62F2 /* Main.storyboard */,
 				0FC57F691EE5E67F00EE62F2 /* Assets.xcassets */,
 				0FC57F6B1EE5E67F00EE62F2 /* LaunchScreen.storyboard */,
 				0FC57F6E1EE5E67F00EE62F2 /* Info.plist */,
+				0F30C6271EE7151C0013CE18 /* SnapScan-Bridging-Header.h */,
+				0F01A2ED1EE8540D0022F20E /* DLog.h */,
 			);
 			path = SnapScan;
 			sourceTree = "<group>";
@@ -154,14 +227,6 @@
 				0FC57F841EE5E67F00EE62F2 /* Info.plist */,
 			);
 			path = SnapScanUITests;
-			sourceTree = "<group>";
-		};
-		0FC57F9B1EE5F6D300EE62F2 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				0F1773E41EE5FD2C00749740 /* ScanResult.swift */,
-			);
-			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -277,6 +342,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0FC57F6D1EE5E67F00EE62F2 /* LaunchScreen.storyboard in Resources */,
+				0F30C6401EE72E970013CE18 /* tessdata in Resources */,
 				0FC57F6A1EE5E67F00EE62F2 /* Assets.xcassets in Resources */,
 				0FC57F681EE5E67F00EE62F2 /* Main.storyboard in Resources */,
 			);
@@ -320,8 +386,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				0FC57F651EE5E67F00EE62F2 /* ViewController.swift in Sources */,
+				0F30C6301EE7194E0013CE18 /* PDFScanner.mm in Sources */,
 				0FC57F631EE5E67F00EE62F2 /* AppDelegate.swift in Sources */,
-				0F1773E51EE5FD2C00749740 /* ScanResult.swift in Sources */,
+				0F30C6461EE739640013CE18 /* UIImage+Pix.mm in Sources */,
+				0F30C62C1EE719360013CE18 /* ScanResult.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -481,10 +549,16 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/SnapScan/Frameworks",
 				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherit)",
+					"\"$(SRCROOT)/../vendor/include\"",
+				);
 				INFOPLIST_FILE = SnapScan/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "\"$(SRCROOT)/../vendor/lib\"";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bryfox.SnapScan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/SnapScan/SnapScan-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -498,10 +572,16 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/SnapScan/Frameworks",
 				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherit)",
+					"\"$(SRCROOT)/../vendor/include\"",
+				);
 				INFOPLIST_FILE = SnapScan/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "\"$(SRCROOT)/../vendor/lib\"";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bryfox.SnapScan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/SnapScan/SnapScan-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

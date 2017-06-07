@@ -13,7 +13,7 @@ enum ScanResultError: Error {
     case realmTemporarilyUnavailable
 }
 
-class ScanResult: Object {
+final class ScanResult: Object {
     // MARK: - Public properties & methods -
 
     var name:String? {
@@ -25,12 +25,21 @@ class ScanResult: Object {
             }
         }
     }
-    
+
     var id: String { return _uuid }
     var createdAt: NSDate { return _createdAt }
     var updatedAt: NSDate { return _updatedAt }
 
     // MARK: -
+    static func create(pdfUrl: String, recognizedText: String, name: String? = nil) -> ScanResult {
+        let scan = ScanResult.init()
+        scan._pdfUrl = pdfUrl
+        scan.recognizedText = recognizedText
+        if let name = name {
+            scan.title = name
+        }
+        return scan
+    }
 
     static func all(filter: String?) throws -> Results<ScanResult> {
         let realm = try! getRealm()
