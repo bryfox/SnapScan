@@ -16,11 +16,13 @@ typedef enum : NSInteger {
 
 @interface PDFScanner : NSObject
 
+- (instancetype)initWithBaseDirectory:(NSString *)baseDirectory NS_DESIGNATED_INITIALIZER;
+
 /**
  Scan image & save PDF file
  @param image from camera
- @returns location of saved PDF
+ @returns subpath to saved PDF, underneath user documents directory
  */
--(NSString *)savePDFFromImage:(UIImage *)image withAccuracy:(PDFScannerAccuracy)accuracy;
+-(NSString *)savePDFForIdentifier:(NSString *)identifier fromImage:(UIImage *)image withAccuracy:(PDFScannerAccuracy)accuracy;
 
 @end

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0F1773E81EE5FDE700749740 /* ScanResultTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1773E71EE5FDE700749740 /* ScanResultTests.swift */; };
+		0F1A78961EE878270067EEB3 /* DefaultFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F1A78951EE878270067EEB3 /* DefaultFileManager.m */; };
+		0F1A78991EE893F40067EEB3 /* ScanResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1A78981EE893F40067EEB3 /* ScanResultCell.swift */; };
 		0F30C62C1EE719360013CE18 /* ScanResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F30C62B1EE719360013CE18 /* ScanResult.swift */; };
 		0F30C6301EE7194E0013CE18 /* PDFScanner.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0F30C62F1EE7194E0013CE18 /* PDFScanner.mm */; };
 		0F30C6381EE71A5D0013CE18 /* liblept.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F30C6331EE71A5D0013CE18 /* liblept.a */; };
@@ -18,6 +20,7 @@
 		0F30C63E1EE721140013CE18 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F30C63D1EE721140013CE18 /* libz.tbd */; };
 		0F30C6401EE72E970013CE18 /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = 0F30C63F1EE72E970013CE18 /* tessdata */; };
 		0F30C6461EE739640013CE18 /* UIImage+Pix.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0F30C6451EE739640013CE18 /* UIImage+Pix.mm */; };
+		0F8905BC1EE9DAEC00B2523D /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 0F8905BA1EE9DAEC00B2523D /* Localizable.stringsdict */; };
 		0FC57F631EE5E67F00EE62F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC57F621EE5E67F00EE62F2 /* AppDelegate.swift */; };
 		0FC57F651EE5E67F00EE62F2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC57F641EE5E67F00EE62F2 /* ViewController.swift */; };
 		0FC57F681EE5E67F00EE62F2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FC57F661EE5E67F00EE62F2 /* Main.storyboard */; };
@@ -29,6 +32,7 @@
 		0FC57F961EE5F62900EE62F2 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0FC57F941EE5F62900EE62F2 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0FC57F991EE5F63100EE62F2 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FC57F981EE5F63100EE62F2 /* RealmSwift.framework */; };
 		0FC57F9A1EE5F63100EE62F2 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0FC57F981EE5F63100EE62F2 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0FE659C71EE9A93700EE0725 /* TimeInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE659C61EE9A93700EE0725 /* TimeInterval.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +70,9 @@
 /* Begin PBXFileReference section */
 		0F01A2ED1EE8540D0022F20E /* DLog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DLog.h; sourceTree = "<group>"; };
 		0F1773E71EE5FDE700749740 /* ScanResultTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanResultTests.swift; sourceTree = "<group>"; };
+		0F1A78941EE878270067EEB3 /* DefaultFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DefaultFileManager.h; path = Scanning/DefaultFileManager.h; sourceTree = "<group>"; };
+		0F1A78951EE878270067EEB3 /* DefaultFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DefaultFileManager.m; path = Scanning/DefaultFileManager.m; sourceTree = "<group>"; };
+		0F1A78981EE893F40067EEB3 /* ScanResultCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScanResultCell.swift; path = Views/ScanResultCell.swift; sourceTree = "<group>"; };
 		0F30C6271EE7151C0013CE18 /* SnapScan-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SnapScan-Bridging-Header.h"; sourceTree = "<group>"; };
 		0F30C62B1EE719360013CE18 /* ScanResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScanResult.swift; path = Models/ScanResult.swift; sourceTree = "<group>"; };
 		0F30C62E1EE7194E0013CE18 /* PDFScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PDFScanner.h; path = Scanning/PDFScanner.h; sourceTree = "<group>"; };
@@ -79,6 +86,7 @@
 		0F30C63F1EE72E970013CE18 /* tessdata */ = {isa = PBXFileReference; lastKnownFileType = folder; name = tessdata; path = SnapScan/tessdata; sourceTree = "<group>"; };
 		0F30C6441EE739640013CE18 /* UIImage+Pix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+Pix.h"; path = "Scanning/UIImage+Pix.h"; sourceTree = "<group>"; };
 		0F30C6451EE739640013CE18 /* UIImage+Pix.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = "UIImage+Pix.mm"; path = "Scanning/UIImage+Pix.mm"; sourceTree = "<group>"; };
+		0F8905BB1EE9DAEC00B2523D /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = Base; path = Base.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
 		0FC57F5F1EE5E67F00EE62F2 /* SnapScan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SnapScan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FC57F621EE5E67F00EE62F2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0FC57F641EE5E67F00EE62F2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -94,6 +102,7 @@
 		0FC57F841EE5E67F00EE62F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0FC57F941EE5F62900EE62F2 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = SnapScan/Frameworks/Realm.framework; sourceTree = "<group>"; };
 		0FC57F981EE5F63100EE62F2 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = SnapScan/Frameworks/RealmSwift.framework; sourceTree = "<group>"; };
+		0FE659C61EE9A93700EE0725 /* TimeInterval.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeInterval.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +138,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0F1A78971EE893D60067EEB3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0F1A78981EE893F40067EEB3 /* ScanResultCell.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		0F30C62A1EE719210013CE18 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -144,6 +161,8 @@
 				0F30C62F1EE7194E0013CE18 /* PDFScanner.mm */,
 				0F30C6441EE739640013CE18 /* UIImage+Pix.h */,
 				0F30C6451EE739640013CE18 /* UIImage+Pix.mm */,
+				0F1A78941EE878270067EEB3 /* DefaultFileManager.h */,
+				0F1A78951EE878270067EEB3 /* DefaultFileManager.m */,
 			);
 			name = Scanning;
 			sourceTree = "<group>";
@@ -196,13 +215,14 @@
 		0FC57F611EE5E67F00EE62F2 /* SnapScan */ = {
 			isa = PBXGroup;
 			children = (
+				0FE659D11EE9D20100EE0725 /* Resources */,
+				0F1A78971EE893D60067EEB3 /* Views */,
 				0F30C6411EE7356F0013CE18 /* ViewControllers */,
 				0F30C62D1EE719450013CE18 /* Scanning */,
 				0F30C62A1EE719210013CE18 /* Models */,
+				0FE659C81EE9A95E00EE0725 /* Extensions */,
 				0FC57F621EE5E67F00EE62F2 /* AppDelegate.swift */,
-				0FC57F661EE5E67F00EE62F2 /* Main.storyboard */,
 				0FC57F691EE5E67F00EE62F2 /* Assets.xcassets */,
-				0FC57F6B1EE5E67F00EE62F2 /* LaunchScreen.storyboard */,
 				0FC57F6E1EE5E67F00EE62F2 /* Info.plist */,
 				0F30C6271EE7151C0013CE18 /* SnapScan-Bridging-Header.h */,
 				0F01A2ED1EE8540D0022F20E /* DLog.h */,
@@ -227,6 +247,24 @@
 				0FC57F841EE5E67F00EE62F2 /* Info.plist */,
 			);
 			path = SnapScanUITests;
+			sourceTree = "<group>";
+		};
+		0FE659C81EE9A95E00EE0725 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				0FE659C61EE9A93700EE0725 /* TimeInterval.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		0FE659D11EE9D20100EE0725 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0FC57F661EE5E67F00EE62F2 /* Main.storyboard */,
+				0FC57F6B1EE5E67F00EE62F2 /* LaunchScreen.storyboard */,
+				0F8905BA1EE9DAEC00B2523D /* Localizable.stringsdict */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -344,6 +382,7 @@
 				0FC57F6D1EE5E67F00EE62F2 /* LaunchScreen.storyboard in Resources */,
 				0F30C6401EE72E970013CE18 /* tessdata in Resources */,
 				0FC57F6A1EE5E67F00EE62F2 /* Assets.xcassets in Resources */,
+				0F8905BC1EE9DAEC00B2523D /* Localizable.stringsdict in Resources */,
 				0FC57F681EE5E67F00EE62F2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -386,6 +425,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				0FC57F651EE5E67F00EE62F2 /* ViewController.swift in Sources */,
+				0FE659C71EE9A93700EE0725 /* TimeInterval.swift in Sources */,
+				0F1A78991EE893F40067EEB3 /* ScanResultCell.swift in Sources */,
+				0F1A78961EE878270067EEB3 /* DefaultFileManager.m in Sources */,
 				0F30C6301EE7194E0013CE18 /* PDFScanner.mm in Sources */,
 				0FC57F631EE5E67F00EE62F2 /* AppDelegate.swift in Sources */,
 				0F30C6461EE739640013CE18 /* UIImage+Pix.mm in Sources */,
@@ -426,6 +468,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		0F8905BA1EE9DAEC00B2523D /* Localizable.stringsdict */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0F8905BB1EE9DAEC00B2523D /* Base */,
+			);
+			name = Localizable.stringsdict;
+			sourceTree = "<group>";
+		};
 		0FC57F661EE5E67F00EE62F2 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -560,6 +610,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/SnapScan/SnapScan-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -583,6 +634,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/SnapScan/SnapScan-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

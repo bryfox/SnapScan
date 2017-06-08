@@ -8,6 +8,7 @@
 
 #import "PDFScanner.h"
 #import "UIImage+Pix.h"
+#import "DefaultFileManager.h"
 #import "DLog.h"
 
 #pragma clang diagnostic push
@@ -18,25 +19,55 @@
 #include <zlib.h>
 #pragma clang diagnostic pop
 
+@interface PDFScanner ()
+@property DefaultFileManager *defaultFileManager;
+@property (readonly) NSString *baseDirectory;
+@end
+
 @implementation PDFScanner
 
--(NSString *)savePDFFromImage:(UIImage *)image withAccuracy:(PDFScannerAccuracy)accuracy {
-    BOOL success = 0;
+- (instancetype)init
+{
+    return [self initWithBaseDirectory:[DefaultFileManager new].pdfDirectoryName];
+}
+
+- (instancetype)initWithBaseDirectory:(NSString *)baseDirectory
+{
+    self = [super init];
+    if (self) {
+        _baseDirectory = baseDirectory;
+        _defaultFileManager = [DefaultFileManager new];
+    }
+    return self;
+}
+
+- (NSString *)savePDFForIdentifier:(NSString *)identifier fromImage:(UIImage *)image withAccuracy:(PDFScannerAccuracy)accuracy {
     [self setTmpDir];
+    BOOL success = 0;
+    NSString *filename = [identifier stringByAppendingString:@".pdf"];
 
     // the tessdata directory must contain both language training data and the pdf.ttf font
-    NSString *tessDataDir = [[NSBundle mainBundle].bundlePath stringByAppendingPathComponent:@"tessdata"];
-    NSString *pdfOutputPath = [self pdfOutputPathWithoutExtension];
+    NSURL *tessDataDir = [[NSBundle mainBundle].bundleURL URLByAppendingPathComponent:@"tessdata"];
+    // The full path to the file we'll create (/var/)
+    NSURL *pdfFullPath = [[self saveDestinationDirectory] URLByAppendingPathComponent:filename];
+    // The PDFRenderer automatically appends a PDF extension to our supplied output path before writing,
+    // and expects input to exclude this
+    NSURL *pdfBasePath = [pdfFullPath URLByDeletingPathExtension];
+    // And we want to return the path *without* the user documents directory, since that could change
+    NSString *returnedPath = [self.baseDirectory stringByAppendingPathComponent:filename];
+
     tesseract::TessBaseAPI *api = new tesseract::TessBaseAPI();
     tesseract::OcrEngineMode engineMode = [self engineModeForAccuracy:accuracy];
-    tesseract::TessPDFRenderer *renderer = new tesseract::TessPDFRenderer(pdfOutputPath.UTF8String, tessDataDir.UTF8String, false);
+    tesseract::TessPDFRenderer *renderer = new tesseract::TessPDFRenderer(pdfBasePath.relativePath.UTF8String,
+                                                                          tessDataDir.relativePath.UTF8String,
+                                                                          false);
 
-    api->Init(tessDataDir.UTF8String, "eng", engineMode);
+    api->Init(tessDataDir.relativePath.UTF8String, "eng", engineMode);
 
     // Begin the PDF
     // we can call ProcessPages() instead, in which case we don't need to Begin/End Document
     // Support processing multiple imported photos as one PDF?
-    success = renderer->BeginDocument(pdfOutputPath.UTF8String);
+    success = renderer->BeginDocument(pdfBasePath.absoluteString.UTF8String);
 
     // Process the Image
     if (success) {
@@ -58,21 +89,15 @@
     api->End();
     delete(api);
 
-    if (!success) {
-        DLog(@"Error: Scan success == false");
-    }
+    success = success && [[NSFileManager defaultManager] fileExistsAtPath:pdfFullPath.relativePath];
 
-    // The PDFRenderer automatically appends a PDF extension to our supplied output path before writing
-    NSString *pdfFile = [pdfOutputPath stringByAppendingString:@".pdf"];
-    BOOL exists = [[NSFileManager defaultManager] fileExistsAtPath:pdfFile];
-    if (exists) {
-        DLog(@"PDF output file: %@", pdfFile);
-        return pdfFile;
+    if (success) {
+        DLog(@"PDF output file: %@", returnedPath);
+        return returnedPath;
     } else {
         DLog(@"Error: PDF output writing failed");
         return nil;
     }
-
 }
 
 #pragma MARK - private
@@ -89,13 +114,6 @@
     }
 }
 
--(NSString *)pdfOutputPathWithoutExtension {
-    // TODO: allow for friendlier names (or move later?)
-    NSString *outputFilename = [[NSProcessInfo processInfo] globallyUniqueString];
-    NSString *pdfSaveDir = [self saveDestinationDirectory];
-    return [[NSString alloc] initWithString: [pdfSaveDir stringByAppendingPathComponent:outputFilename]];
-}
-
 /**
  Set tmp dir for leptonica (else defaults to unwriteable /tmp)
  (requires forked version for now): https://tpgit.github.io/Leptonica/psio2_8c_source.html
@@ -108,28 +126,12 @@
 /**
  Save all pdfs to [documents]/pdf/
  */
--(NSString *)saveDestinationDirectory {
-    NSArray *dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *docsDir = [dirPaths objectAtIndex:0];
-    NSString *pdfDir = [docsDir stringByAppendingPathComponent:@"pdf"];
-    return [self createDirectoryIfNeeded:pdfDir] ? pdfDir : docsDir;
+-(NSURL *)saveDestinationDirectory {
+    NSURL *pdfDir = [_defaultFileManager userDocumentsURLForSubdirectory:self.baseDirectory];
+    [_defaultFileManager createDirectoryAtPathURL:pdfDir];
+    // TODO: handle failure?
+    return pdfDir;
 }
 
-/**
- Create dir if not already
- @returns true if exists
- */
-- (BOOL)createDirectoryIfNeeded:(NSString *)dir {
-    NSError *error = [NSError new];
-    BOOL success = [[NSFileManager defaultManager] createDirectoryAtPath:dir
-                                             withIntermediateDirectories:YES
-                                                              attributes:nil
-                                                                   error:&error];
-    if (!success) {
-        DLog(@"Error during directory creation: %@", error);
-    }
-
-    return success;
-}
 
 @end
