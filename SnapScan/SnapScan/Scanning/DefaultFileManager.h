@@ -8,6 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
+/**
+ TODO: make this app-specific; all file/dir knowledge encapsulated here/
+ The interfaces should work with PATHS (Strings), to avoid need to set documents dir elsewhere.
+ Strings are stored by Realm anyway.
+ ScanResult can provide a facade for this if needed.
+ */
 @interface DefaultFileManager : NSObject
 
 @property (readonly) NSString *imageDirectoryName;
@@ -25,6 +31,15 @@
  @param url full path of directory
  @returns true if directory exists
  */
-- (BOOL)createDirectoryAtPathURL:(NSURL *)url;
+- (BOOL)createDirectoryAtURL:(NSURL *)url;
+
+
+/**
+ Delete the file at the path, but prepend the user docs dir
+ */
+- (BOOL)deleteDocumentAtPath:(NSString *)path error:(NSError **)error;
+
+// for debugging
+- (NSInteger)pdfCount;
 
 @end

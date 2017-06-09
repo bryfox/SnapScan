@@ -9,7 +9,7 @@
 import Foundation
 
 extension TimeInterval {
-    var minutes:TimeInterval { return self / 60 }
-    var hours:TimeInterval { return self / 60 / 60 }
-    var days:TimeInterval { return self / 60 / 60 / 24 }
+    var minutes: TimeInterval { return self / 60 }
+    var hours: TimeInterval { return self / 60 / 60 }
+    var days: TimeInterval { return self / 60 / 60 / 24 }
 }

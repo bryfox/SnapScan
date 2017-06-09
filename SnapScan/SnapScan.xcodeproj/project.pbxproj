@@ -20,9 +20,10 @@
 		0F30C63E1EE721140013CE18 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F30C63D1EE721140013CE18 /* libz.tbd */; };
 		0F30C6401EE72E970013CE18 /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = 0F30C63F1EE72E970013CE18 /* tessdata */; };
 		0F30C6461EE739640013CE18 /* UIImage+Pix.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0F30C6451EE739640013CE18 /* UIImage+Pix.mm */; };
+		0F365BFE1EEAEA3C00747832 /* DLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F365BFD1EEAEA3C00747832 /* DLog.swift */; };
 		0F8905BC1EE9DAEC00B2523D /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 0F8905BA1EE9DAEC00B2523D /* Localizable.stringsdict */; };
 		0FC57F631EE5E67F00EE62F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC57F621EE5E67F00EE62F2 /* AppDelegate.swift */; };
-		0FC57F651EE5E67F00EE62F2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC57F641EE5E67F00EE62F2 /* ViewController.swift */; };
+		0FC57F651EE5E67F00EE62F2 /* ScanResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC57F641EE5E67F00EE62F2 /* ScanResultViewController.swift */; };
 		0FC57F681EE5E67F00EE62F2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FC57F661EE5E67F00EE62F2 /* Main.storyboard */; };
 		0FC57F6A1EE5E67F00EE62F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FC57F691EE5E67F00EE62F2 /* Assets.xcassets */; };
 		0FC57F6D1EE5E67F00EE62F2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FC57F6B1EE5E67F00EE62F2 /* LaunchScreen.storyboard */; };
@@ -32,7 +33,7 @@
 		0FC57F961EE5F62900EE62F2 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0FC57F941EE5F62900EE62F2 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0FC57F991EE5F63100EE62F2 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FC57F981EE5F63100EE62F2 /* RealmSwift.framework */; };
 		0FC57F9A1EE5F63100EE62F2 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0FC57F981EE5F63100EE62F2 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		0FE659C71EE9A93700EE0725 /* TimeInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE659C61EE9A93700EE0725 /* TimeInterval.swift */; };
+		0FE659C71EE9A93700EE0725 /* TimeInterval+Units.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE659C61EE9A93700EE0725 /* TimeInterval+Units.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,10 +87,11 @@
 		0F30C63F1EE72E970013CE18 /* tessdata */ = {isa = PBXFileReference; lastKnownFileType = folder; name = tessdata; path = SnapScan/tessdata; sourceTree = "<group>"; };
 		0F30C6441EE739640013CE18 /* UIImage+Pix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+Pix.h"; path = "Scanning/UIImage+Pix.h"; sourceTree = "<group>"; };
 		0F30C6451EE739640013CE18 /* UIImage+Pix.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = "UIImage+Pix.mm"; path = "Scanning/UIImage+Pix.mm"; sourceTree = "<group>"; };
+		0F365BFD1EEAEA3C00747832 /* DLog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DLog.swift; sourceTree = "<group>"; };
 		0F8905BB1EE9DAEC00B2523D /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = Base; path = Base.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
 		0FC57F5F1EE5E67F00EE62F2 /* SnapScan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SnapScan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FC57F621EE5E67F00EE62F2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0FC57F641EE5E67F00EE62F2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		0FC57F641EE5E67F00EE62F2 /* ScanResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanResultViewController.swift; sourceTree = "<group>"; };
 		0FC57F671EE5E67F00EE62F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0FC57F691EE5E67F00EE62F2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0FC57F6C1EE5E67F00EE62F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -102,7 +104,7 @@
 		0FC57F841EE5E67F00EE62F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0FC57F941EE5F62900EE62F2 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = SnapScan/Frameworks/Realm.framework; sourceTree = "<group>"; };
 		0FC57F981EE5F63100EE62F2 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = SnapScan/Frameworks/RealmSwift.framework; sourceTree = "<group>"; };
-		0FE659C61EE9A93700EE0725 /* TimeInterval.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeInterval.swift; sourceTree = "<group>"; };
+		0FE659C61EE9A93700EE0725 /* TimeInterval+Units.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TimeInterval+Units.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,7 +187,7 @@
 		0F30C6411EE7356F0013CE18 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				0FC57F641EE5E67F00EE62F2 /* ViewController.swift */,
+				0FC57F641EE5E67F00EE62F2 /* ScanResultViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -226,6 +228,7 @@
 				0FC57F6E1EE5E67F00EE62F2 /* Info.plist */,
 				0F30C6271EE7151C0013CE18 /* SnapScan-Bridging-Header.h */,
 				0F01A2ED1EE8540D0022F20E /* DLog.h */,
+				0F365BFD1EEAEA3C00747832 /* DLog.swift */,
 			);
 			path = SnapScan;
 			sourceTree = "<group>";
@@ -252,7 +255,7 @@
 		0FE659C81EE9A95E00EE0725 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				0FE659C61EE9A93700EE0725 /* TimeInterval.swift */,
+				0FE659C61EE9A93700EE0725 /* TimeInterval+Units.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -274,10 +277,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0FC57F871EE5E67F00EE62F2 /* Build configuration list for PBXNativeTarget "SnapScan" */;
 			buildPhases = (
+				0F365BFF1EEAF42F00747832 /* Swift Lint */,
 				0FC57F5B1EE5E67F00EE62F2 /* Sources */,
 				0FC57F5C1EE5E67F00EE62F2 /* Frameworks */,
 				0FC57F5D1EE5E67F00EE62F2 /* Resources */,
-				0FC57F931EE5EB3800EE62F2 /* ShellScript */,
+				0FC57F931EE5EB3800EE62F2 /* FIXME: Run Script */,
 				0FC57F971EE5F62900EE62F2 /* Embed Frameworks */,
 			);
 			buildRules = (
@@ -404,13 +408,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0FC57F931EE5EB3800EE62F2 /* ShellScript */ = {
+		0F365BFF1EEAF42F00747832 /* Swift Lint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
+			name = "Swift Lint";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
+		0FC57F931EE5EB3800EE62F2 /* FIXME: Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "FIXME: Run Script";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -424,9 +443,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0FC57F651EE5E67F00EE62F2 /* ViewController.swift in Sources */,
-				0FE659C71EE9A93700EE0725 /* TimeInterval.swift in Sources */,
+				0FC57F651EE5E67F00EE62F2 /* ScanResultViewController.swift in Sources */,
+				0FE659C71EE9A93700EE0725 /* TimeInterval+Units.swift in Sources */,
 				0F1A78991EE893F40067EEB3 /* ScanResultCell.swift in Sources */,
+				0F365BFE1EEAEA3C00747832 /* DLog.swift in Sources */,
 				0F1A78961EE878270067EEB3 /* DefaultFileManager.m in Sources */,
 				0F30C6301EE7194E0013CE18 /* PDFScanner.mm in Sources */,
 				0FC57F631EE5E67F00EE62F2 /* AppDelegate.swift in Sources */,

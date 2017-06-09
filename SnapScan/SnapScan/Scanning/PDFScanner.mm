@@ -128,7 +128,7 @@
  */
 -(NSURL *)saveDestinationDirectory {
     NSURL *pdfDir = [_defaultFileManager userDocumentsURLForSubdirectory:self.baseDirectory];
-    [_defaultFileManager createDirectoryAtPathURL:pdfDir];
+    [_defaultFileManager createDirectoryAtURL:pdfDir];
     // TODO: handle failure?
     return pdfDir;
 }

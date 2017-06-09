@@ -11,6 +11,7 @@ import RealmSwift
 
 enum ScanResultError: Error {
     case realmTemporarilyUnavailable
+    case deleteFailed
 }
 
 final class ScanResult: Object {
@@ -25,7 +26,7 @@ final class ScanResult: Object {
 
     // wrapping private realm properties to provide a facade for Realm updates
 
-    var name:String? {
+    var name: String? {
         get { return title }
         set(newName) {
             try? withRealm {
@@ -34,7 +35,7 @@ final class ScanResult: Object {
         }
     }
 
-    var previewImage:String? {
+    var previewImage: String? {
         get {
             return _previewImageUrl
         }
@@ -45,7 +46,7 @@ final class ScanResult: Object {
         }
     }
 
-    var pdfFile:String? {
+    var pdfFile: String? {
         get { return _pdfUrl }
         set(newUrl) {
             try? withRealm {
@@ -79,25 +80,42 @@ final class ScanResult: Object {
         return scan
     }
 
+    static func delete(_ id: String) -> Bool {
+        guard let realm = try? getRealm(), let scan = realm.object(ofType: self, forPrimaryKey: id) else {
+            return false
+        }
+        do {
+            realm.beginWrite()
+            let fm = DefaultFileManager.init()
+            try fm.deleteDocument(atPath: scan.pdfFile)
+            try fm.deleteDocument(atPath: scan.previewImage)
+//            realm.delete(scan)
+            realm.delete(scan)
+            try realm.commitWrite()
+        } catch {
+            return false
+        }
+        return true
+    }
+
     static func all(filter: String? = nil) throws -> Results<ScanResult> {
-        let realm = try! getRealm()
-        
+        let realm = try getRealm()
+
         var results = realm.objects(self)
         if let filter = filter {
             results = results.filter("title LIKE '*@*'", filter)
         }
         return results.sorted(byKeyPath: "_createdAt", ascending: false)
     }
-    
+
     static func get(_ id: String) -> ScanResult? {
-        let realm = try! Realm()
-        return realm.object(ofType: self, forPrimaryKey: id)
+        let realm = try? Realm()
+        return realm?.object(ofType: self, forPrimaryKey: id)
     }
-    
+
     func save() throws {
         try withRealm({() -> Void in return })
     }
-    
 
     // MARK: - Private -
 
@@ -107,11 +125,11 @@ final class ScanResult: Object {
     private dynamic var _createdAt = NSDate()
     private dynamic var _updatedAt = NSDate()
 
-    private dynamic var _previewImageUrl:String? = nil
-    private dynamic var _pdfUrl:String? = nil
+    private dynamic var _previewImageUrl: String?
+    private dynamic var _pdfUrl: String?
 
-    dynamic var recognizedText: String? = nil
-    dynamic var title: String? = nil
+    dynamic var recognizedText: String?
+    dynamic var title: String?
 
     // MARK: -
 
@@ -122,7 +140,7 @@ final class ScanResult: Object {
     // MARK: -
 
     private static func getRealm () throws -> Realm {
-        let realm:Realm
+        let realm: Realm
         do {
             realm = try Realm()
         } catch {
@@ -133,12 +151,16 @@ final class ScanResult: Object {
     }
 
     // MARK: -
-
     private func withRealm(_ block: () -> Void) throws {
+        try withRealm({(_: Realm) -> Void in
+             block()
+        })
+    }
+
+    private func withRealm(_ block: (Realm) -> Void) throws {
         let realm = try getRealm()
-        
-        try! realm.write {
-            block()
+        try realm.write {
+            block(realm)
             _updatedAt = NSDate()
             realm.add(self, update: true)
         }
@@ -147,6 +169,4 @@ final class ScanResult: Object {
     private func getRealm () throws -> Realm {
         return try type(of: self).getRealm()
     }
-    
 }
-

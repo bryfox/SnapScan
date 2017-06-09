@@ -1,0 +1,15 @@
+# https://github.com/realm/SwiftLint
+
+# paths to ignore during linting
+excluded:
+  - SnapScanTests
+  - SnapScanUITests
+
+disabled_rules:
+  - todo # TODO: reenable :)
+
+# customizations
+line_length: 150
+identifier_name:
+  excluded: id
+force_cast:

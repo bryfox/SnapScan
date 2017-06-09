@@ -71,4 +71,13 @@ class ScanResultTests: XCTestCase {
         XCTAssertNotEqual(firstTime, newScan.updatedAt, "timestamp was not updated")
     }
 
+    func testDeletion() {
+        let newScan = ScanResult.init()
+        let scanId = newScan.id
+        try! newScan.save()
+        XCTAssertNotNil(realm?.object(ofType: ScanResult.self, forPrimaryKey: scanId))
+        let success = ScanResult.delete(scanId)
+        XCTAssertTrue(success)
+        XCTAssertNil(realm?.object(ofType: ScanResult.self, forPrimaryKey: scanId))
+    }
 }
