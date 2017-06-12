@@ -15,7 +15,6 @@ enum ScanResultError: Error {
 }
 
 final class ScanResult: Object {
-
     // Add all wrapping properties
     // Note: read-only properties are automatically ignored
     override static func ignoredProperties() -> [String] {
@@ -36,9 +35,7 @@ final class ScanResult: Object {
     }
 
     var previewImage: String? {
-        get {
-            return _previewImageUrl
-        }
+        get { return _previewImageUrl }
         set(newUrl) {
             try? withRealm {
                 _previewImageUrl = newUrl
@@ -58,7 +55,7 @@ final class ScanResult: Object {
     var id: String { return _uuid }
     var createdAt: Date { return _createdAt as Date }
     var updatedAt: Date { return _updatedAt as Date }
-    // XXX: prototype only 
+    // XXX: prototype only
     var isScanning: Bool { return _previewImageUrl != nil && _pdfUrl == nil }
 
     // MARK: -
@@ -85,14 +82,18 @@ final class ScanResult: Object {
             return false
         }
         do {
+            let pdfPath = scan.pdfFile
+            let previewPath = scan.previewImage
+            let fm = MediaFileManager.init()
             realm.beginWrite()
-            let fm = DefaultFileManager.init()
-            try fm.deleteDocument(atPath: scan.pdfFile)
-            try fm.deleteDocument(atPath: scan.previewImage)
-//            realm.delete(scan)
             realm.delete(scan)
             try realm.commitWrite()
+            // Once realm write is committed, delete files
+            try? fm.deleteDocument(atPath: pdfPath)
+            try? fm.deleteDocument(atPath: previewPath)
         } catch {
+            print("Delete failed: \(error)")
+            realm.cancelWrite()
             return false
         }
         return true
@@ -120,6 +121,9 @@ final class ScanResult: Object {
     // MARK: - Private -
 
     // MARK: persisted Realm properties:
+    override static func indexedProperties() -> [String] {
+        return ["_createdAt"]
+    }
 
     private dynamic var _uuid = NSUUID().uuidString
     private dynamic var _createdAt = NSDate()

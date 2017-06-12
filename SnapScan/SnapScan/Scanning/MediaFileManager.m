@@ -1,15 +1,19 @@
 //
-//  DefaultFileManager.m
+//  MediaFileManager.m
 //  SnapScan
 //
 //  Created by Bryan Fox on 6/7/17.
 //  Copyright © 2017 Bryan Fox. All rights reserved.
 //
 
-#import "DefaultFileManager.h"
+#import "MediaFileManager.h"
 #import "DLog.h"
 
-@implementation DefaultFileManager
+@interface MediaFileManager()
+@property (readonly) NSURL *documentDirectory;
+@end
+
+@implementation MediaFileManager
 
 - (NSString *)imageDirectoryName {
     // Refers to saved user data on disk
@@ -21,14 +25,35 @@
     return @"pdf";
 }
 
-- (NSURL *)userDocumentsURLForSubdirectory:(NSString *)subdirectory {
-    if (nil == subdirectory) {
-        // Else would throw NSInvalidArgumentException
-        return nil;
-    }
+- (NSURL *)documentDirectory {
     NSArray *dirPaths = [[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask];
-    NSURL *docsDir = [dirPaths firstObject];
-    return [docsDir URLByAppendingPathComponent:subdirectory];
+    return [dirPaths lastObject];
+}
+
+- (NSURL *)pdfDocumentDirectory {
+    NSURL *pdfDir = [self userDocumentsURLForSubdirectory:self.pdfDirectoryName];
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        [self createDirectoryAtURL:pdfDir];
+    });
+    return pdfDir;
+}
+
+- (NSURL *)previewDocumentDirectory {
+    NSURL *previewDir = [self userDocumentsURLForSubdirectory:self.imageDirectoryName];
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        [self createDirectoryAtURL:previewDir];
+    });
+    return previewDir;
+}
+
+- (NSURL *)urlForDocument:(NSString *)documentPath {
+    return [self userDocumentsURLForSubdirectory:documentPath];
+}
+
+- (NSString *)fullPathToDocument:(NSString *)documentPath {
+    return [self userDocumentsURLForSubdirectory:documentPath].path;
 }
 
 - (BOOL)createDirectoryAtURL:(NSURL *)url {
@@ -58,5 +83,16 @@
                                                                        error:&error];
     return error ? -1: files.count;
 }
+
+#pragma MARK - private
+
+- (NSURL *)userDocumentsURLForSubdirectory:(NSString *)subdirectory {
+    if (nil == subdirectory) {
+        // Else would throw NSInvalidArgumentException
+        return nil;
+    }
+    return [self.documentDirectory URLByAppendingPathComponent:subdirectory];
+}
+
 
 @end

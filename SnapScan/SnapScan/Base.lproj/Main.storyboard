@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -90,6 +90,12 @@
                                                 <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="vLr-m2-5dI">
                                                     <rect key="frame" x="103" y="20" width="37" height="37"/>
                                                 </activityIndicatorView>
+                                                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Hio-pV-4oE">
+                                                    <rect key="frame" x="8" y="176" width="144" height="2"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="2" id="fVA-JN-xob"/>
+                                                    </constraints>
+                                                </progressView>
                                             </subviews>
                                         </view>
                                         <constraints>
@@ -99,22 +105,22 @@
                                             <constraint firstAttribute="trailingMargin" secondItem="Fzz-y1-Hen" secondAttribute="trailing" id="Njl-nI-5gM"/>
                                             <constraint firstAttribute="bottomMargin" secondItem="PD0-11-eNM" secondAttribute="bottom" id="XzS-IX-90V"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="PD0-11-eNM" secondAttribute="trailing" id="ZNV-pY-oUR"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="Hio-pV-4oE" secondAttribute="trailing" id="ahM-lN-Z3h"/>
                                             <constraint firstItem="vLr-m2-5dI" firstAttribute="top" secondItem="Fzz-y1-Hen" secondAttribute="top" constant="12" id="eYC-dh-hQ0"/>
+                                            <constraint firstAttribute="leadingMargin" secondItem="Hio-pV-4oE" secondAttribute="leading" id="g9s-gt-w2o"/>
                                             <constraint firstItem="PD0-11-eNM" firstAttribute="top" secondItem="Fzz-y1-Hen" secondAttribute="bottom" constant="8" id="l2X-ev-2Ed"/>
                                             <constraint firstItem="PD0-11-eNM" firstAttribute="leading" secondItem="Yzd-6l-omx" secondAttribute="leadingMargin" id="xK4-Pq-deP"/>
+                                            <constraint firstItem="Hio-pV-4oE" firstAttribute="bottom" secondItem="Fzz-y1-Hen" secondAttribute="bottom" id="yvc-Af-Hqf"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="activityIndicator" destination="vLr-m2-5dI" id="oh2-pM-BAO"/>
                                             <outlet property="dateLabel" destination="dDP-jl-LaK" id="xtr-aC-oTU"/>
                                             <outlet property="imageView" destination="Fzz-y1-Hen" id="Ral-kx-Bgw"/>
                                             <outlet property="nameLabel" destination="UT5-13-AfE" id="Jjr-sD-DMR"/>
+                                            <outlet property="progressView" destination="Hio-pV-4oE" id="mOM-fc-vR8"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
-                                <connections>
-                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="EOa-ok-Om9"/>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="OFV-rS-5xg"/>
-                                </connections>
                             </collectionView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E7R-Tg-soE">
                                 <rect key="frame" x="0.0" y="623" width="375" height="44"/>

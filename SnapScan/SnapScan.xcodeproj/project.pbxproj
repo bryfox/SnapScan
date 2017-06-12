@@ -8,8 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		0F1773E81EE5FDE700749740 /* ScanResultTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1773E71EE5FDE700749740 /* ScanResultTests.swift */; };
-		0F1A78961EE878270067EEB3 /* DefaultFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F1A78951EE878270067EEB3 /* DefaultFileManager.m */; };
+		0F1A78961EE878270067EEB3 /* MediaFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F1A78951EE878270067EEB3 /* MediaFileManager.m */; };
 		0F1A78991EE893F40067EEB3 /* ScanResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1A78981EE893F40067EEB3 /* ScanResultCell.swift */; };
+		0F1F764D1EEF31CA00D75A50 /* ScanCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1F764C1EEF31CA00D75A50 /* ScanCellViewModel.swift */; };
 		0F30C62C1EE719360013CE18 /* ScanResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F30C62B1EE719360013CE18 /* ScanResult.swift */; };
 		0F30C6301EE7194E0013CE18 /* PDFScanner.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0F30C62F1EE7194E0013CE18 /* PDFScanner.mm */; };
 		0F30C6381EE71A5D0013CE18 /* liblept.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F30C6331EE71A5D0013CE18 /* liblept.a */; };
@@ -21,6 +22,7 @@
 		0F30C6401EE72E970013CE18 /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = 0F30C63F1EE72E970013CE18 /* tessdata */; };
 		0F30C6461EE739640013CE18 /* UIImage+Pix.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0F30C6451EE739640013CE18 /* UIImage+Pix.mm */; };
 		0F365BFE1EEAEA3C00747832 /* DLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F365BFD1EEAEA3C00747832 /* DLog.swift */; };
+		0F53925A1EF16088000C2504 /* ScanResultDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5392591EF16088000C2504 /* ScanResultDataProvider.swift */; };
 		0F8905BC1EE9DAEC00B2523D /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 0F8905BA1EE9DAEC00B2523D /* Localizable.stringsdict */; };
 		0FC57F631EE5E67F00EE62F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC57F621EE5E67F00EE62F2 /* AppDelegate.swift */; };
 		0FC57F651EE5E67F00EE62F2 /* ScanResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC57F641EE5E67F00EE62F2 /* ScanResultViewController.swift */; };
@@ -71,9 +73,10 @@
 /* Begin PBXFileReference section */
 		0F01A2ED1EE8540D0022F20E /* DLog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DLog.h; sourceTree = "<group>"; };
 		0F1773E71EE5FDE700749740 /* ScanResultTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanResultTests.swift; sourceTree = "<group>"; };
-		0F1A78941EE878270067EEB3 /* DefaultFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DefaultFileManager.h; path = Scanning/DefaultFileManager.h; sourceTree = "<group>"; };
-		0F1A78951EE878270067EEB3 /* DefaultFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DefaultFileManager.m; path = Scanning/DefaultFileManager.m; sourceTree = "<group>"; };
+		0F1A78941EE878270067EEB3 /* MediaFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MediaFileManager.h; path = Scanning/MediaFileManager.h; sourceTree = "<group>"; };
+		0F1A78951EE878270067EEB3 /* MediaFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MediaFileManager.m; path = Scanning/MediaFileManager.m; sourceTree = "<group>"; };
 		0F1A78981EE893F40067EEB3 /* ScanResultCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScanResultCell.swift; path = Views/ScanResultCell.swift; sourceTree = "<group>"; };
+		0F1F764C1EEF31CA00D75A50 /* ScanCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScanCellViewModel.swift; path = Models/ScanCellViewModel.swift; sourceTree = "<group>"; };
 		0F30C6271EE7151C0013CE18 /* SnapScan-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SnapScan-Bridging-Header.h"; sourceTree = "<group>"; };
 		0F30C62B1EE719360013CE18 /* ScanResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScanResult.swift; path = Models/ScanResult.swift; sourceTree = "<group>"; };
 		0F30C62E1EE7194E0013CE18 /* PDFScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PDFScanner.h; path = Scanning/PDFScanner.h; sourceTree = "<group>"; };
@@ -88,6 +91,8 @@
 		0F30C6441EE739640013CE18 /* UIImage+Pix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+Pix.h"; path = "Scanning/UIImage+Pix.h"; sourceTree = "<group>"; };
 		0F30C6451EE739640013CE18 /* UIImage+Pix.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = "UIImage+Pix.mm"; path = "Scanning/UIImage+Pix.mm"; sourceTree = "<group>"; };
 		0F365BFD1EEAEA3C00747832 /* DLog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DLog.swift; sourceTree = "<group>"; };
+		0F4033C21EEEF5C800FAC471 /* PDFScannerProgressDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PDFScannerProgressDelegate.h; path = Scanning/PDFScannerProgressDelegate.h; sourceTree = "<group>"; };
+		0F5392591EF16088000C2504 /* ScanResultDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanResultDataProvider.swift; sourceTree = "<group>"; };
 		0F8905BB1EE9DAEC00B2523D /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = Base; path = Base.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
 		0FC57F5F1EE5E67F00EE62F2 /* SnapScan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SnapScan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FC57F621EE5E67F00EE62F2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -152,6 +157,8 @@
 			isa = PBXGroup;
 			children = (
 				0F30C62B1EE719360013CE18 /* ScanResult.swift */,
+				0F1F764C1EEF31CA00D75A50 /* ScanCellViewModel.swift */,
+				0F5392591EF16088000C2504 /* ScanResultDataProvider.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -163,8 +170,9 @@
 				0F30C62F1EE7194E0013CE18 /* PDFScanner.mm */,
 				0F30C6441EE739640013CE18 /* UIImage+Pix.h */,
 				0F30C6451EE739640013CE18 /* UIImage+Pix.mm */,
-				0F1A78941EE878270067EEB3 /* DefaultFileManager.h */,
-				0F1A78951EE878270067EEB3 /* DefaultFileManager.m */,
+				0F1A78941EE878270067EEB3 /* MediaFileManager.h */,
+				0F1A78951EE878270067EEB3 /* MediaFileManager.m */,
+				0F4033C21EEEF5C800FAC471 /* PDFScannerProgressDelegate.h */,
 			);
 			name = Scanning;
 			sourceTree = "<group>";
@@ -446,11 +454,13 @@
 				0FC57F651EE5E67F00EE62F2 /* ScanResultViewController.swift in Sources */,
 				0FE659C71EE9A93700EE0725 /* TimeInterval+Units.swift in Sources */,
 				0F1A78991EE893F40067EEB3 /* ScanResultCell.swift in Sources */,
+				0F1F764D1EEF31CA00D75A50 /* ScanCellViewModel.swift in Sources */,
 				0F365BFE1EEAEA3C00747832 /* DLog.swift in Sources */,
-				0F1A78961EE878270067EEB3 /* DefaultFileManager.m in Sources */,
+				0F1A78961EE878270067EEB3 /* MediaFileManager.m in Sources */,
 				0F30C6301EE7194E0013CE18 /* PDFScanner.mm in Sources */,
 				0FC57F631EE5E67F00EE62F2 /* AppDelegate.swift in Sources */,
 				0F30C6461EE739640013CE18 /* UIImage+Pix.mm in Sources */,
+				0F53925A1EF16088000C2504 /* ScanResultDataProvider.swift in Sources */,
 				0F30C62C1EE719360013CE18 /* ScanResult.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

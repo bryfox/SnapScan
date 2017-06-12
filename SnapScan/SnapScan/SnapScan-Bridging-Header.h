@@ -10,6 +10,6 @@
 #define SnapScan_Bridging_Header_h
 
 #import "Scanning/PDFScanner.h"
-#import "Scanning/DefaultFileManager.h"
+#import "Scanning/MediaFileManager.h"
 
 #endif /* SnapScan_Bridging_Header_h */

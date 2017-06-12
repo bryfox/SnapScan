@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PDFScannerProgressDelegate.h"
 
 typedef enum : NSInteger {
     PDFScannerAccuracyHigh,
@@ -14,15 +15,22 @@ typedef enum : NSInteger {
     PDFScannerAccuracyLow
 } PDFScannerAccuracy;
 
+/**
+ PDFScanner
+ - Each instance must be initialized in its own thread in order for progress updates to work correctly
+ */
 @interface PDFScanner : NSObject
 
-- (instancetype)initWithBaseDirectory:(NSString *)baseDirectory NS_DESIGNATED_INITIALIZER;
+@property (readonly, copy) NSString *identifier;
+@property (weak) id<PDFScannerProgressDelegate> progressDelegate;
+
+- (instancetype)initWithIdentifier:(NSString *)identifier NS_DESIGNATED_INITIALIZER;
 
 /**
  Scan image & save PDF file
  @param image from camera
  @returns subpath to saved PDF, underneath user documents directory
  */
--(NSString *)savePDFForIdentifier:(NSString *)identifier fromImage:(UIImage *)image withAccuracy:(PDFScannerAccuracy)accuracy;
+- (NSString *)savePDFFromImage:(UIImage *)image withAccuracy:(PDFScannerAccuracy)accuracy;
 
 @end
