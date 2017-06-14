@@ -13,6 +13,7 @@ class ScanResultViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var debugLabel: UILabel!
+    @IBOutlet weak var editBtn: UIBarButtonItem!
 
     let fileManager = MediaFileManager.init()
     let itemsPerRow = 2
@@ -57,7 +58,8 @@ extension ScanResultViewController : DataUpdateDelegate {
     func onChange(_ change: RealmCollectionChange<Results<ScanResult>>) {
         guard let collectionView = self.collectionView else { return }
 
-        self.debugLabel.text = "\(dataProvider?.collectionView(collectionView, numberOfItemsInSection: 0) ?? 0) scans"
+        // TODO: debug only
+        self.navigationItem.title = "\(dataProvider?.count ?? 0) scans"
 
         switch change {
         case .initial:
@@ -115,7 +117,9 @@ extension ScanManager : MenuActionDelegate {
 private typealias CollectionViewDelegate = ScanResultViewController
 extension CollectionViewDelegate : UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-
+        if let scan = dataProvider?.scanAtIndexPath(indexPath), let pdfUrl = scan.pdfUrl {
+            showPreview(forPdfUrl: pdfUrl)
+        }
     }
 
     func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
@@ -144,6 +148,27 @@ extension CollectionViewDelegate : UICollectionViewDelegate {
 //        let renameItem = UIMenuItem.init(title: NSLocalizedString("Rename", comment: ""), action: #selector(ScanResultCell.rename))
         menu.menuItems = [shareItem] //, renameItem
     }
+
+    private func showPreview(forPdfUrl url: URL) {
+        // Provides a more compact API than QuickLook
+        let documentController = UIDocumentInteractionController(url: url)
+        documentController.delegate = self
+        documentController.name = NSLocalizedString("Share PDF", comment: "")
+        documentController.presentPreview(animated: true)
+        // Note: This does the same thing as our SharePDF btn... is this api better?
+        // controller.presentOptionsMenu(from: self.editBtn, animated: true)
+    }
+}
+
+private typealias DocumentDelegate = ScanResultViewController
+extension DocumentDelegate: UIDocumentInteractionControllerDelegate {
+    func documentInteractionControllerViewControllerForPreview(_ controller: UIDocumentInteractionController) -> UIViewController {
+        // return self for modal, or  navigation controller to push onto stack
+        return self.navigationController!
+    }
+
+    //optional func documentInteractionControllerWillBeginPreview(_ controller: UIDocumentInteractionController):
+    //You can use this notification to set up any additional interface elements behind the preview elements.
 
 }
 

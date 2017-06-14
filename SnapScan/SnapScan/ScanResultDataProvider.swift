@@ -28,6 +28,8 @@ class ScanResultDataProvider: NSObject {
 
     var viewModels: [ScanCellViewModel] { return _viewModels }
 
+    var count: Int { return _viewModels.count }
+
     convenience init?(delegate: DataUpdateDelegate & MenuActionDelegate) {
         self.init(dataUpdateDelegate: delegate, menuActionDelegate: delegate)
         if queryResults == nil {
