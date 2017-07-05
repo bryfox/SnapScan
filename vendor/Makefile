@@ -88,14 +88,14 @@ common_cflags = -L$(LIB_FAT_DIR) -Qunused-arguments -arch $(call swap, $*, $(arc
 .PHONY : all
 all : $(dependant_libs)
 
-# # XXX: Cleaning just lept (but keeping source changes for debugging)
-# .PHONY : leptrefresh
-# leptrefresh : cleanlept
-# 	-rm -rf $(LEPT_INC_DIR)/leptonica
-# 	-rm -rf $(libleptfat)
-# 	for folder in $(realpath $(libleptfolders_all) ); do \
-# 		rm -rf $$folder; \
-# 		done;
+# Cleaning just lept (but keeping source changes for debugging)
+.PHONY : leptrefresh
+leptrefresh :
+	-rm -rf $(LEPT_INC_DIR)/leptonica
+	-rm -rf $(libleptfat)
+	for folder in $(realpath $(libleptfolders_all) ); do \
+		rm -rf $$folder; \
+		done;
 
 #######################
 # TESSERACT-OCR
@@ -150,11 +150,9 @@ $(LEPTON_SRC)/%/Makefile : $(imagesfat) $(libleptconfig)
     ../configure --host=$* --prefix=`pwd` --enable-shared=no --disable-programs --with-zlib --with-libpng --with-jpeg --without-giflib --with-libtiff
 
 #######################
-# Build libtiff and all of it's dependencies
+# Build libtiff and all of its dependencies
 #######################
 $(imagesfat) : $(images)
-	echo "????"
-	echo $(@d)
 	mkdir -p $(@D)
 	cp -rvf $? $(@D)
 	mkdir -p $(INCLUDE_DIR)
@@ -165,15 +163,13 @@ $(images) : $(imagesmakefile) FORCE
 	until `$(MAKE) -s`; do sleep 5; done
 
 #######################
-# Download dependencies
+# Install dependencies
 #######################
 $(imagesmakefile) $(libtessautogen) :
 	git submodule init
 	git submodule update
 
 $(libleptconfig) :
-# use installed submodule instead
-#curl http://leptonica.org/source/$(LEPTON_NAME).tar.gz | tar -xpf-
 	# ensure that `libtoolize` is installed; may need to symlink glibtoolize
 	cd $(@D); \
 	./autobuild
@@ -183,69 +179,3 @@ tessdownload:
 	cd $(TESSERACT_SRC)
 	git archive --remote $(TESS_GIT_REPO) $(TESS_GIT_BRANCH) | tar -xpf-
 
-#######################
-# Clean
-#######################
-.PHONY : clean
-clean : cleanimages cleanlept cleantess
-
-.PHONY : distclean
-distclean : distcleanimages distcleanlept distcleantess
-
-.PHONY : mostlyclean
-mostlyclean : mostlycleanimages mostlycleanlept mostlycleantess
-
-.PHONY : cleanimages
-cleanimages :
-	cd $(IMAGE_SRC) ; \
-	$(MAKE) clean
-
-.PHONY : cleanlept
-cleanlept :
-	for folder in $(realpath $(libleptfolders_all) ); do \
-        cd $$folder; \
-        $(MAKE) clean; \
-	done ;
-
-.PHONY : cleantess
-cleantess :
-	for folder in $(realpath $(libtessfolders_all) ); do \
-        cd $$folder; \
-        $(MAKE) clean; \
-    done ;
-
-.PHONY : mostlycleanimages
-mostlycleanimages :
-
-.PHONY : mostlycleanlept
-mostlycleanlept :
-	for folder in $(realpath $(libleptfolders) ); do \
-        cd $$folder; \
-        $(MAKE) mostlyclean; \
-    done ;
-
-.PHONY : mostlycleantess
-mostlycleantess :
-	for folder in $(realpath $(libtessfolders_all) ); do \
-        cd $$folder; \
-        $(MAKE) mostlyclean; \
-    done ;
-
-.PHONY : distcleanimages
-distcleanimages :
-	-rm -rf $(IMAGE_SRC)
-
-PHONY : distcleanlept
-distcleanlept :
-	-rm -rf $(LEPT_INC_DIR)/leptonica
-	-rm -rf $(libleptfat)
-	-rm -rf $(LEPTON_SRC)
-
-.PHONY : distcleantess
-distcleantess :
-	-rm -rf $(TESS_INC_DIR)/tesseract
-	-rm -rf $(libtessfat)
-	-rm -rf $(TESSERACT_SRC)
-
-.PHONY : FORCE
-FORCE :
