@@ -5,7 +5,7 @@
   ignore = untracked
 [submodule "leptonica"]
 	path = vendor/leptonica
-	url = file:///Users/bryfox/dev/_ext/leptonica/
+	url = https://github.com/bryfox/leptonica/
   # ignore files added during build
   ignore = untracked
 [submodule "libtiff-ios"]
